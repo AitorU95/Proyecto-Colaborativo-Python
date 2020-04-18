@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<h1>App de gestión de equipos</h1>
+<h2>{{titulo_pagina}}</h2>
+{%block contenido%}
+{%endblock%}
+</body>
+</html>

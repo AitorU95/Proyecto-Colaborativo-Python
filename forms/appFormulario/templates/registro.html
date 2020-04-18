@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formulario</title>
+</head>
+<body>
+<form action="{%url 'mostrardatos'%}" method="post">
+    {% csrf_token %}
+    <p>
+        <label>modelo de equipo</label>
+        <input type="text" name="modelo">
+    </p>
+    <p>
+        <label>ticket de equipo</label>
+        <input type="text" name="ticket">
+    </p>
+
+    <p>
+        <label>Nserie de equipo</label>
+        <input type="text" name="Nserie">
+    </p>
+    <p>
+        <label>Marca de equipo</label>
+        <input type="text" name="marca">
+    </p>
+    <p>
+        <label>tipo de equipo</label>
+        <input type="text" name="tipo">
+    </p>
+    <p>
+        <label>fecha de equipo</label>
+        <input type="text" name="fechaa">
+    </p>
+    <p>
+        <label>fechapm de equipo</label>
+        <input type="text" name="fechapm">
+    </p>
+    <p>
+        <label>proveedor de equipo</label>
+        <input type="text" name="proveedor">
+    </p>
+    <p>
+        <label>planta de equipo</label>
+        <input type="text" name="planta">
+    </p>
+    <p>
+        <input type="submit" value="registrar">
+    </p>
+
+</form>
+</body>
+</html>

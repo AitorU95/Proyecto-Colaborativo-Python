@@ -1,0 +1,13 @@
+{% extends "base.html"%}
+{%block contenido%}
+<ul>
+    {% for d in lista_equipos %}
+    <li>
+      {{d.id}}:{{d.marca}}  <a href="{% url 'empleado' d.id %}">ver</a>
+
+
+
+    </li>
+    {% endfor %}
+</ul>
+{%endblock%}
