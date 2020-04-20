@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<h1>App de gestión de equipos</h1>
-<h2>{{titulo_pagina}}</h2>
-{%block contenido%}
-{%endblock%}
+    <h1>App de gestión de equipos</h1>
+    <h2>{{titulo_pagina}}</h2>
+    {%block contenido%} {%endblock%}
 </body>
 </html>

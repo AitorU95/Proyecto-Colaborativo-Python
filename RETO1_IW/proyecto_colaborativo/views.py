@@ -5,12 +5,16 @@ from .models import Equipo, Empleado, ticket
 
 
 def index(request):
+
+    context = {'titulo_pagina': 'Inicio'}
+    return render(request, 'Inicio.html', context)  # request, nombre de la template, contenido que se le pasa
+
+def equipos(request):
     equipos = Equipo.objects.order_by("marca")  # metodo que ordena por marca
-    context = {'titulo_pagina': 'listado de departamentos',
-               'lista_equipos': equipos}  # pasamos lista_equipos a la template como dato
+    context = {'titulo_pagina': 'Gestión de equipos',
+               'lista_equipos': equipos}        # pasamos lista_equipos a la template como dato
 
-    return render(request, 'equipos.html', context)  # request, nombre de la template, contenido que se le pasa
-
+    return render(request, 'equipos.html', context)
 
 def detail(request, equipo_id):  # nos busca por id
     equipos = Equipo.objects.get(pk=equipo_id)
@@ -25,7 +29,7 @@ def empleado(request, empleado_id):
     return render(request,'empleado.html',context)'''
 
 
-class EmpleadoDetailView(DetailView):#clase predefinida de django para ids
+class EmpleadoDetailView(DetailView): #clase predefinida de django para ids
     model = Empleado
     template_name = 'empleado.html'
     context_object_name = 'empleados'
@@ -34,4 +38,14 @@ class EmpleadoDetailView(DetailView):#clase predefinida de django para ids
         context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
         context['titulo_pagina'] = 'detalles del empleado'
 
+        return context
+
+class EquiposDetailView(DetailView):
+    model = Equipo
+    template_name = 'equipos.html'
+    context_object_name = 'equipos'
+
+    def get_context_data(self, **kwargs):
+        context = super(EquiposDetailView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'detalles de los equipos'
         return context

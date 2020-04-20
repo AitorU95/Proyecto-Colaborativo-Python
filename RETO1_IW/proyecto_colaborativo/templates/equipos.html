@@ -3,10 +3,7 @@
 <ul>
     {% for d in lista_equipos %}
     <li>
-      {{d.id}}:{{d.marca}}  <a href="{% url 'empleado' d.id %}">ver</a>
-
-
-
+      {{d.id}}:{{d.modelo}}  <a href="{% url 'empleado' d.id %}">ver</a>
     </li>
     {% endfor %}
 </ul>
