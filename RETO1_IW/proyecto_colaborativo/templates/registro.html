@@ -5,7 +5,7 @@
     <title>formulario</title>
 </head>
 <body>
-<form action="{%url 'mostrardatos'%}" method="post">
+<form action="{%url 'equipo'%}" method="post">
     {% csrf_token %}
     <p>
         <label>modelo de equipo</label>
@@ -18,7 +18,7 @@
 
     <p>
         <label>Nserie de equipo</label>
-        <input type="text" name="Nserie">
+        <input type="text" name="numeroserie">
     </p>
     <p>
         <label>Marca de equipo</label>
@@ -30,11 +30,11 @@
     </p>
     <p>
         <label>fecha de equipo</label>
-        <input type="text" name="fechaa">
+        <input type="text" name="fecha_adquisicion">
     </p>
     <p>
         <label>fechapm de equipo</label>
-        <input type="text" name="fechapm">
+        <input type="text" name="fecha_puesta_marcha">
     </p>
     <p>
         <label>proveedor de equipo</label>

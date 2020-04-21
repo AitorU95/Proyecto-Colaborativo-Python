@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import DetailView
 from django.http import HttpResponse
 from .models import Equipo, Empleado, ticket
+from .form import EquipoForm
 
 
 def index(request):
@@ -49,3 +50,41 @@ class EquiposDetailView(DetailView):
         context = super(EquiposDetailView, self).get_context_data(**kwargs)
         context['titulo_pagina'] = 'detalles de los equipos'
         return context
+
+def show_form(request):
+    return render(request, 'registro.html')
+
+
+def post_form(request):
+    modelo = request.POST["modelo"]
+    numeroserie = request.POST["numeroserie"]
+    marca = request.POST["marca"]
+    tipo = request.POST["tipo"]
+    fecha_adquisicion = request.POST["fecha_adquisicion"]
+    fecha_puesta_marcha = request.POST["fecha_puesta_marcha"]
+    proveedor = request.POST["proveedor"]
+    return HttpResponse(
+        F"el model: {modelo} ,Nserie:{numeroserie},marca:{marca},tipo:{tipo},fecha_adquisicion:{fecha_adquisicion},fechapm={fecha_puesta_marcha},proveedor:{proveedor}")
+
+
+def show_equipo_form(request):
+    form = EquipoForm()
+    context={'form':form}
+    return render(request, 'empleado.form.html', context)
+
+
+def post_equipo_form(request):
+    form = EquipoForm(request.POST)
+    if form.is_valid():
+        equipo=Equipo()
+        equipo.modelo = form.cleaned_data['modelo'],
+        equipo.numeroserie = form.cleaned_data['numeroserie']
+        equipo.marca = form.cleaned_data['marca']
+        equipo.tipo =form.cleaned_data['tipo']
+        equipo.fecha_adquisicion =form.cleaned_data['fecha_adquisicion']
+        equipo.fecha_puesta_marcha=form.cleaned_data['fecha_puesta_marcha']
+        equipo.planta=form.cleaned_data['planta']
+        equipo.save()
+
+
+    return HttpResponse(F"EL equipo  MODELO ES:{equipo.modelo}, el numero de serie es:{equipo.numeroserie}")
