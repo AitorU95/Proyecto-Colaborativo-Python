@@ -1,5 +1,6 @@
 {% extends "base.html"%}
 {%block contenido%}
+<a href="{% url 'equipo.form' %}">Insertar Equipos</a>
 <ul>
     {% for d in lista_equipos %}
     <li>
