@@ -38,6 +38,7 @@ class ticket(models.Model):
                f"Urgencia={self.urgencia},tipo={self.tipo},estado={self.estado},empleado={self.empleado}comentarios={self.comentarios}"
 
 
+
 class Equipo(models.Model):
     # No es necesario crear un campo para la Primary Key, Django creará automáticamente un IntegerField.
 
@@ -47,9 +48,14 @@ class Equipo(models.Model):
     tipo = models.CharField(max_length=50)
     fecha_adquisicion = models.DateField()
     fecha_puesta_marcha = models.DateField()
-    proveedor = models.CharField(max_length=200)
+    proveedor = models.CharField(max_length=100)
     planta = models.CharField(max_length=200)
 
     def __str__(self):
         return f"id={self.id},modelo={self.modelo},marca={self.marca},tipo={self.tipo},fecha_adquisicion={self.fecha_adquisicion},fecha_puesta_marcha={self.fecha_puesta_marcha}," \
                f"proveedor={self.proveedor},planta={self.planta}"
+
+
+
+
+

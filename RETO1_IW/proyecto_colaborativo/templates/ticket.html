@@ -1,0 +1,46 @@
+{% extends "base.html"%}
+{%block contenido%}
+<table>
+    <tr>
+        <td>Numero de referencia:</td>
+        <td>{{ticket.numeroref}}</td>
+    </tr>
+    <tr>
+        <td>Titulo:</td>
+        <td>{{ticket.titulo}}
+    </tr>
+    <tr>
+        <td>Descripción:</td>
+        <td>{{ticket.descripcion}}</td>
+    </tr>
+    <tr>
+        <td>Fecha de apertura:</td>
+        <td>{{ticket.fecha_apertura}}</td>
+    </tr>
+    <tr>
+        <td>Fecha de resolución:</td>
+        <td>{{ticket.fecha_resolucion}}</td>
+    </tr>
+    <tr>
+        <td>Urgencia:</td>
+        <td>{{ticket.urgencia}}</td>
+    </tr>
+    <tr>
+        <td>Tipo:</td>
+        <td>{{ticket.tipo}}</td>
+    </tr>
+    <tr>
+        <td>Estado:</td>
+        <td>{{ticket.estado}}</td>
+    </tr>
+    <tr>
+        <td>Empleado encargado:</td>
+        <td>{{ticket.empleado}}</td>
+    </tr>
+    <tr>
+        <td>Comentarios:</td>
+        <td>{{ticket.comentarios}}</td>
+    </tr>
+</table>
+{%endblock%}
+

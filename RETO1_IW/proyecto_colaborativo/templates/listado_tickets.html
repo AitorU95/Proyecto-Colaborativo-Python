@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{%block contenido%}
+<a href="">Insertar Ticket</a>
+<ul>
+    {% for d in ticket_list %}
+    <li>
+      {{d.numeroref}}:{{d.titulo}}  <a href="{% url 'ticket' d.id %}">ver</a>
+    </li>
+    {% endfor %}
+</ul>
+
+
+
+{%endblock%}

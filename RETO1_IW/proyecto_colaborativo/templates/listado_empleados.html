@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{%block contenido%}
+<a href="">Insertar Empleado</a>
+<ul>
+    {% for d in Empleados_list %}
+    <li>
+      {{d.nombre}}:{{d.apellido}}  <a href="{% url 'empleados' d.id %}">ver</a>
+    </li>
+    {% endfor %}
+</ul>
+
+
+
+{%endblock%}

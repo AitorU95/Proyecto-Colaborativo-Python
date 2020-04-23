@@ -9,5 +9,8 @@ urlpatterns = [
     path('mostrardatos/', views.post_form, name='mostrardatos'),
     path('equipo/', views.show_equipo_form, name='equipo.form'),#insertar equipos
     path('equipoalmacenados/', views.equipos, name='equipoalmacenados'),#lista de equipos
-    path('comprobacion/', views.post_equipo_form, name='comprobacion')#compreba si has metido correctamente
+    path('comprobacion/', views.post_equipo_form, name='comprobacion'),#compreba si has metido correctamente
+    path('tickets/', views.TicketListView.as_view(), name = 'tickets'),
+    path('ticket/<int:pk>', views.TicketDetaiView.as_view(), name = 'ticket'),
+    path('listaempleados/',views.EmpleadoListView.as_view(),name='listaempleados')
 ]

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 from django.http import HttpResponse
 from .models import Equipo, Empleado, ticket
 from .form import EquipoForm
@@ -17,6 +17,27 @@ def equipos(request):
 
     return render(request, 'equipos.html', context)
 
+
+class TicketListView(ListView): #clase para sacar los tickets como listado ordenados por numero de referencia
+    model = ticket
+    template_name = 'listado_tickets.html'
+    queryset = ticket.objects.order_by('numeroref')
+
+    def get_context_data(self, **kwargs):
+        context = super(TicketListView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Listado de tickets'
+        return context
+
+class EmpleadoListView(ListView):
+    model = Empleado
+    template_name = 'listado_empleados.html'
+    queryset = Empleado.objects.order_by('nombre')
+
+    def get_context_data(self, **kwargs):
+        context = super(EmpleadoListView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Listado de empleados'
+        return context
+
 def detail(request, equipo_id):  # nos busca por id
     equipos = Equipo.objects.get(pk=equipo_id)
     return HttpResponse(equipos)
@@ -28,6 +49,15 @@ def empleado(request, empleado_id):
     # output = ",".join([empleados.nombre,empleados.dni]) #cargar directamente ne http respons sin plantilla
     context={'titulo_pagina':'listado de empleados','empleados':empleados}
     return render(request,'empleado.html',context)'''
+
+class TicketDetaiView(DetailView):
+    model = ticket
+    template_name = 'ticket.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(TicketDetaiView,self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Detalles del ticket'
+        return context
 
 
 class EmpleadoDetailView(DetailView): #clase predefinida de django para ids
@@ -88,3 +118,4 @@ def post_equipo_form(request):
 
 
     return HttpResponse(F"EL equipo  MODELO ES:{equipo.modelo}, el numero de serie es:{equipo.numeroserie}")
+
