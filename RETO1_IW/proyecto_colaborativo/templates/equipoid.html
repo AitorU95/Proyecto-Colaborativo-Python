@@ -1,0 +1,35 @@
+{% extends "base.html"%}
+{%block contenido%}
+<table>
+    <tr>
+        <td>modelo:</td>
+        <td>{{equipos.modelo}}</td>
+    </tr>
+    <tr>
+        <td>numero serie:</td>
+        <td>{{equipos.numeroserie}}
+    </tr>
+    <tr>
+        <td>tipo:</td>
+        <td>{{equipos.tipo}}</td>
+    </tr>
+    <tr>
+        <td>Fecha de adquision:</td>
+        <td>{{equipos.fecha_adquisicion}}</td>
+    </tr>
+    <tr>
+        <td>Fecha de puesta en marcha:</td>
+        <td>{{equipos.fecha_puesta_marcha}}</td>
+    </tr>
+    <tr>
+        <td>proveedor:</td>
+        <td>{{equipos.proveedor}}</td>
+    </tr>
+    <tr>
+        <td>planta:</td>
+        <td>{{equipos.planta}}</td>
+    </tr>
+
+
+</table>
+{%endblock%}

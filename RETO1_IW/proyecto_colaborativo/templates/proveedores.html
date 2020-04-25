@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{%block contenido%}
+
+<ul>
+    {% for d in lista_proveedores %}
+    <li>
+      {{d.proveedor}}
+    </li>
+    {% endfor %}
+</ul>
+
+
+
+{%endblock%}

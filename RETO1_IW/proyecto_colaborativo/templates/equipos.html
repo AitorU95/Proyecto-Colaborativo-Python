@@ -1,10 +1,14 @@
 {% extends "base.html"%}
 {%block contenido%}
 <a href="{% url 'equipo.form' %}">Insertar Equipos</a>
+<br>
+<a href="{% url 'proveedores' %}">Ver proveedores</a>
+<br>
+<a href="{% url 'equipoalmacenados' %}">Actualizar</a>
 <ul>
     {% for d in lista_equipos %}
     <li>
-      {{d.id}}:{{d.modelo}}  <a href="{% url 'empleado' d.id %}">ver</a>
+      {{d.id}}-----{{d.modelo}}  <a href="{% url 'equipos' d.id %}">(Detalles)</a>
     </li>
     {% endfor %}
 </ul>
