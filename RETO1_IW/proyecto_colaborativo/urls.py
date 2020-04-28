@@ -16,5 +16,9 @@ urlpatterns = [
     path('tickets/', views.TicketListView.as_view(), name='tickets'),
     path('ticket/<int:pk>', views.TicketDetaiView.as_view(), name='ticket'),
     path('listaempleados/', views.EmpleadoListView.as_view(), name='listaempleados'),
-    path('proveedores/', views.proveedor, name='proveedores')  # lista de los proveedores
+    path('proveedores/', views.proveedor, name='proveedores'),  # lista de los proveedores
+    path('añadirequipos/',views.Equipos_add, name ='añadirequipo'),
+    path('editarequipo/<int:equipo_id>', views.Equipos_edit, name='editarequipo'),
+    path('equipodelete/<int:equipo_id>', views.Equipos_delete, name='equipodelete'),
+    path('ticketedit/<int:ticket_id>', views.ticket_edit, name ='ticketedit')
 ]

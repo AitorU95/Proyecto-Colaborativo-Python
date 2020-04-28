@@ -1,17 +1,32 @@
 from django import forms
-from .models import ticket
+from django.forms import ModelForm
+
+from .models import ticket, Equipo
 
 
-class EquipoForm(forms.Form):
-    modelo = forms.CharField(label="modelo", max_length=100)
-    numeroserie = forms.CharField(label="numeroserie", max_length=100)
-    marca = forms.CharField(label="marca", max_length=100)
-    tipo = forms.CharField(label="tipo", max_length=100)
-    fecha_adquisicion = forms.DateField(label="fecha adquisicion", required=False)
-    fecha_puesta_marcha = forms.DateField(label="fecha puesta marcha", required=False)
-    proveedor = forms.CharField(label="proveedor", max_length=100)
-    planta = forms.CharField(label="planta", max_length=100)
+#class EquipoForm(forms.Form):
+#    modelo = forms.CharField(label="modelo", max_length=100)
+#    numeroserie = forms.CharField(label="numeroserie", max_length=100)
+#    marca = forms.CharField(label="marca", max_length=100)
+#    tipo = forms.CharField(label="tipo", max_length=100)
+#    fecha_adquisicion = forms.DateField(label="fecha adquisicion", required=False)
+#    fecha_puesta_marcha = forms.DateField(label="fecha puesta marcha", required=False)
+#    proveedor = forms.CharField(label="proveedor", max_length=100)
+ #   planta = forms.CharField(label="planta", max_length=100)
 
+class EquipoForm(ModelForm):
+    class Meta:
+        model = Equipo
+        fields = ['modelo','numeroserie','marca','tipo',
+                  'fecha_adquisicion','fecha_puesta_marcha',
+                  'proveedor', 'planta']
+
+class TicketForm(ModelForm):
+    class Meta:
+        model = ticket
+        fields = ['numeroref','titulo', 'descripcion' ,'fecha_apertura',
+                  'fecha_resolucion', 'urgencia', 'tipo', 'estado',
+                  'empleado', 'comentarios']
 
 class EmpleadoForm(forms.Form):
     nombre = forms.CharField(label="nombre", max_length=100)

@@ -1,6 +1,6 @@
 {% extends "base.html"%}
 {%block contenido%}
-<a href="{% url 'equipo.form' %}">Insertar Equipos</a>
+<a href="{% url 'añadirequipo' %}">Insertar Equipos</a>
 <br>
 <a href="{% url 'proveedores' %}">Ver proveedores</a>
 <br>
@@ -8,7 +8,10 @@
 <ul>
     {% for d in lista_equipos %}
     <li>
-      {{d.id}}-----{{d.modelo}}  <a href="{% url 'equipos' d.id %}">(Detalles)</a>
+        {{d.modelo}}-----{{d.numeroserie}}  <a href="{% url 'equipos' d.id %}">Detalles</a>
+        <a href="{% url 'editarequipo' d.id %}">Editar</a>
+        <a href="{% url 'equipodelete' d.id %}" onclick="return confirm('Seguro que quieres borrar a {{equipo.modelo}}? );">
+            Borrar </a>
     </li>
     {% endfor %}
 </ul>
