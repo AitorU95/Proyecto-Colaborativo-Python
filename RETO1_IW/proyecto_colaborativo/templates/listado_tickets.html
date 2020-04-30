@@ -1,15 +1,16 @@
 {% extends "base.html"%}
 {%block contenido%}
 <a href="{% url 'ticket.form'%}">Insertar Ticket</a>
+
 <ul>
     {% for d in ticket_list %}
     <li>
-      {{d.numeroref}}:{{d.titulo}}  <a href="{% url 'ticket' d.id %}">Ver</a>
-        <a href="{% url 'ticketedit' d.id %}"}>Editar</a>
+        {{d.numeroref}}:{{d.titulo}} <a href="{% url 'ticket' d.id %}">Ver</a>
+        <a href="{% url 'ticketedit' d.id %}" }>Editar</a>
+        <a href="{% url 'ticketdelete' d.id %}" }>borrar</a>
     </li>
     {% endfor %}
 </ul>
-
 
 
 {%endblock%}

@@ -1,9 +1,9 @@
 {% extends "base.html"%}
 {%block formulario%}
-<form method="POST">
+<form action="{%url 'ticketadd'%}" method="post">
     {% csrf_token %}
     {{form.as_p}}
-    <button type="submit" class="btn btn-success">Añadir</button>
+    <input type="submit" value="registrar">
 
 </form>
 

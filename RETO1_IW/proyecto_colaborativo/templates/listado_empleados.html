@@ -1,14 +1,14 @@
 {% extends "base.html"%}
 {%block contenido%}
-<a href="{% url 'empleado.form'  %}">Insertar Empleado</a>
+<a href="{% url 'empleado.form'  %}" class="btn btn-success">Insertar Empleado</a>
+
 <ul>
     {% for d in Empleados_list %}
     <li>
-      {{d.nombre}}---{{d.apellido}}  <a href="{% url 'empleados' d.id %}">ver</a>
+        {{d.nombre}}---{{d.apellido}}<a href="{% url 'empleado' d.id  %}">Detalles</a>---<a href="{% url 'empleadodelete' d.id  %}">Borrar</a>----<a href="{% url 'empleadoedit' d.id  %}">Editar Empleado</a>
     </li>
     {% endfor %}
 </ul>
-
 
 
 {%endblock%}
