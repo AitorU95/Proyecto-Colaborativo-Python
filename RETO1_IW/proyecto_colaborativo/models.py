@@ -19,6 +19,24 @@ class Empleado(models.Model):
     def __str__(self):
         return f"Id={self.id},Nombre={self.nombre},Apellido={self.apellido},DNI={self.dni},Telefono={self.telefono},Email={self.email}"
 
+# Definicion de los tipos de urgencia para el desplegable dentro del modelo ticket
+TICKET_URGENCIA_CHIOCES = (
+    ('urgente','URGENTE'),
+    ('alta','ALTA'),
+    ('media','MEDIA'),
+    ('baja','BAJA')
+)
+# Definicion de los tipos de ticket para el desplegable dentro del modelo ticket
+TICKET_TIPO_CHOICES = (
+    ('avería','AVERÍA'),
+    ('mejora','MEJORA'),
+    ('mantenimiento','MANTENIMIENTO')
+)
+# Definicion de los tipos de estado para el desplegable dentro del modelo ticket
+TICKET_ESTADO_CHOICES = (
+    ('abierto','ABIERTO'),
+    ('cerrado','CERRADO')
+)
 
 class ticket(models.Model):
     # No es necesario crear un campo para la Primary Key, Django creará automáticamente un IntegerField.
@@ -27,9 +45,9 @@ class ticket(models.Model):
     descripcion = models.CharField(max_length=50, null=True)
     fecha_apertura = models.DateField(null=True)
     fecha_resolucion = models.DateField(null=True)
-    urgencia = models.CharField(max_length=50, null=True)
-    tipo = models.CharField(max_length=50, null=True)
-    estado = models.CharField(max_length=50, null=True)
+    urgencia = models.CharField(max_length=50,choices = TICKET_URGENCIA_CHIOCES,default='urgente', null=True)
+    tipo = models.CharField(max_length=50, choices= TICKET_TIPO_CHOICES, default= 'avería' ,null=True)
+    estado = models.CharField(max_length=50, choices= TICKET_ESTADO_CHOICES, default='abierto' ,null=True)
     empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
     comentarios = models.CharField(max_length=50, null=True)
 

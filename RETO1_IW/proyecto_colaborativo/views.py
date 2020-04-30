@@ -128,7 +128,7 @@ def Equipos_add(request):  # metodo para insertar equipos
             # Despues de guardar redireccionamos la lista
             return redirect('http://127.0.0.1:8000/proyecto_colaborativo/equipoalmacenados/')
     # Si llegamos al final renderizamos el formulario
-    return render(request, 'equipo_add.html', {'form': form})
+    return render(request, 'add.html', {'form': form})
 
 
 def Equipos_edit(request, equipo_id):
@@ -158,6 +158,22 @@ def Equipos_delete(request, equipo_id):
     # Despues redireccionamos a la lista
     return redirect('http://127.0.0.1:8000/proyecto_colaborativo/')
 
+def Ticket_add(request):  # metodo para insertar equipos
+    # Creamos un formulario vacío
+    form = TicketForm
+    # Comprobamos si se ha enviado el formulario
+    if request.method == "POST":
+        # añadimos los datos del formulario
+        form = TicketForm(request.POST)
+        # Si el formulario es valido
+        if form.is_valid():
+            # Guardamos el formulario pero sin confirmarlo, asi conseguiremos una instancia para manejarla
+            instancia = form.save(commit=False)
+            instancia.save()
+            # Despues de guardar redireccionamos la lista
+            return redirect('http://127.0.0.1:8000/proyecto_colaborativo/tickets/')
+    # Si llegamos al final renderizamos el formulario
+    return render(request, 'add.html', {'form': form})
 
 def ticket_edit(request, ticket_id):
     # Recuperamos la instancia del equipo
@@ -203,25 +219,6 @@ def show_ticket_form(request):
     context = {'form': form}
     return render(request, 'ticket.form.html', context)
 
-
-def post_ticket_form(request):  # insertar ticket
-    global Ticket
-    form = TicketForm(request.POST)
-    if form.is_valid():
-        Ticket = ticket()
-        Ticket.numeroref = form.cleaned_data['numeroref'],
-        Ticket.titulo = form.cleaned_data['titulo'],
-        Ticket.descripcion = form.cleaned_data['descripcion'],
-        Ticket.fecha_apertura = form.cleaned_data['fecha_apertura'],
-        Ticket.fecha_resolucion = form.cleaned_data['fecha_resolucion'],
-        Ticket.urgencia = form.cleaned_data['urgencia'],
-        Ticket.tipo = form.cleaned_data['tipo'],
-        Ticket.estado = form.cleaned_data['estado'],
-        Ticket.comentarios = form.cleaned_data['comentarios']
-
-        Ticket.save()
-
-    return HttpResponse(F"el model: {Ticket.estado}")
 
 
 def post_empleado_form(request):

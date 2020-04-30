@@ -23,5 +23,5 @@ urlpatterns = [
     path('empleadodelete/<int:empleado_id>', views.Empleados_delete, name='empleadodelete'),
     path('ticketedit/<int:ticket_id>', views.ticket_edit, name ='ticketedit'),
     path('empleadoedit/<int:empleado_id>',views.Empleado_edit,name='empleadoedit'),
-    path('ticketadd/',views.post_ticket_form,name='ticketadd')
+    path('ticketadd/',views.Ticket_add,name='ticketadd')
 ]

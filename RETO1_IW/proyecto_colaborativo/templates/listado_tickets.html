@@ -1,13 +1,13 @@
 {% extends "base.html"%}
 {%block contenido%}
-<a href="{% url 'ticket.form'%}">Insertar Ticket</a>
+<a href="{% url 'ticketadd'%}">Insertar Ticket</a>
 
 <ul>
     {% for d in ticket_list %}
     <li>
         {{d.numeroref}}:{{d.titulo}} <a href="{% url 'ticket' d.id %}">Ver</a>
         <a href="{% url 'ticketedit' d.id %}" }>Editar</a>
-        <a href="{% url 'ticketdelete' d.id %}" }>borrar</a>
+        <a href="{% url 'ticketdelete' d.id %}" }><i class="fas fa-trash-alt"></i></a>
     </li>
     {% endfor %}
 </ul>
