@@ -1,16 +1,18 @@
 {% extends "base.html"%}
 {%block contenido%}
+<a href="{% url 'equipoalmacenados'%}"><i class="far fa-hand-point-left"></i> Atrás</a>
+<br>
 <table>
     <tr>
-        <td>modelo:</td>
+        <td>Modelo:</td>
         <td>{{equipos.modelo}}</td>
     </tr>
     <tr>
-        <td>numero serie:</td>
+        <td>Numero de serie:</td>
         <td>{{equipos.numeroserie}}
     </tr>
     <tr>
-        <td>tipo:</td>
+        <td>Tipo:</td>
         <td>{{equipos.tipo}}</td>
     </tr>
     <tr>
@@ -22,11 +24,11 @@
         <td>{{equipos.fecha_puesta_marcha}}</td>
     </tr>
     <tr>
-        <td>proveedor:</td>
+        <td>Proveedor:</td>
         <td>{{equipos.proveedor}}</td>
     </tr>
     <tr>
-        <td>planta:</td>
+        <td>Planta:</td>
         <td>{{equipos.planta}}</td>
     </tr>
 

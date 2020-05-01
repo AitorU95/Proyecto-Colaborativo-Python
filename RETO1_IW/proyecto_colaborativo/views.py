@@ -156,7 +156,7 @@ def Equipos_delete(request, equipo_id):
     instancia = Equipo.objects.get(id=equipo_id)
     instancia.delete()
     # Despues redireccionamos a la lista
-    return redirect('http://127.0.0.1:8000/proyecto_colaborativo/')
+    return redirect('http://127.0.0.1:8000/proyecto_colaborativo/equipoalmacenados/')
 
 def Ticket_add(request):  # metodo para insertar equipos
     # Creamos un formulario vacío
@@ -190,6 +190,7 @@ def ticket_edit(request, ticket_id):
             instancia = form.save(commit=False)
             # Podemos guardarla cuando queramos
             instancia.save()
+            return redirect('http://127.0.0.1:8000/proyecto_colaborativo/tickets/')
     # Si llegamos al final renderizamos el formulario
     return render(request, "editar.html", {'form': form})
 
@@ -199,7 +200,7 @@ def ticket_delete(request, ticket_id):  # metodo que borra tickets
     instancia = ticket.objects.get(id=ticket_id)
     instancia.delete()
     # Despues redireccionamos a la lista
-    return redirect('http://127.0.0.1:8000/proyecto_colaborativo/')
+    return redirect('http://127.0.0.1:8000/proyecto_colaborativo/tickets')
 
 
 def show_equipo_form(request):
@@ -235,13 +236,29 @@ def post_empleado_form(request):
 
     return redirect('http://127.0.0.1:8000/proyecto_colaborativo/')
 
+def Empleado_add(request):  # metodo para insertar equipos
+    # Creamos un formulario vacío
+    form = EmpleadoForm
+    # Comprobamos si se ha enviado el formulario
+    if request.method == "POST":
+        # añadimos los datos del formulario
+        form = EmpleadoForm(request.POST)
+        # Si el formulario es valido
+        if form.is_valid():
+            # Guardamos el formulario pero sin confirmarlo, asi conseguiremos una instancia para manejarla
+            instancia = form.save(commit=False)
+            instancia.save()
+            # Despues de guardar redireccionamos la lista
+            return redirect('http://127.0.0.1:8000/proyecto_colaborativo/listaempleados/')
+    # Si llegamos al final renderizamos el formulario
+    return render(request, 'add.html', {'form': form})
 
 def Empleados_delete(request, empleado_id):
     # Recuperamos la instacia del equipo y la borramos
     instancia = Empleado.objects.get(id=empleado_id)
     instancia.delete()
     # Despues redireccionamos a la lista
-    return redirect('http://127.0.0.1:8000/proyecto_colaborativo/')
+    return redirect('http://127.0.0.1:8000/proyecto_colaborativo/listaempleados')
 
 
 def Empleado_edit(request, empleado_id):
@@ -259,6 +276,7 @@ def Empleado_edit(request, empleado_id):
             instancia = form.save(commit=False)
             # Podemos guardarla cuando queramos
             instancia.save()
+            return redirect('http://127.0.0.1:8000/proyecto_colaborativo/listaempleados')
     # Si llegamos al final renderizamos el formulario
     return render(request, "editar.html", {'form': form})
 # class ticket_view(View): esto esta en su video min 23 clase 02/04

@@ -29,6 +29,11 @@ class TicketForm(ModelForm):
                   'fecha_resolucion', 'urgencia', 'tipo', 'estado',
                   'empleado', 'comentarios']
 
+class EmpleadoForm(ModelForm):
+    class Meta:
+        model = Empleado
+        fields =['nombre', 'apellido', 'dni', 'telefono', 'email']
+
 
 class EmpleadoForm(forms.Form):
     nombre = forms.CharField(label="nombre", max_length=100)

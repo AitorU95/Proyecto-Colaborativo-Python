@@ -1,9 +1,9 @@
 {% extends "base.html"%}
 {%block Menu%}
-<h2>SELECCIONA UNA OPCIÓN</h2>
-<li>
-    <ul>Gestión de los equipos <a href="{% url 'equipoalmacenados'  %}">Consultar</a></ul>
-    <ul>Gestión de los tickets <a href="{% url 'tickets'  %}">Consultar</a></ul>
-    <ul>Visualización de los empleados activos <a href="{% url 'listaempleados'  %}">Consultar</a></ul>
-</li>
+<h3>SELECCIONA UNA OPCIÓN</h3>
+<ul >
+    <li>Gestión de los equipos <a href="{% url 'equipoalmacenados'  %}"><i class="fas fa-info-circle"></i> Consultar</a></li>
+    <li>Gestión de los tickets <a href="{% url 'tickets'  %}"><i class="fas fa-info-circle"></i> Consultar</a></li>
+    <li>Visualización de los empleados activos <a href="{% url 'listaempleados'  %}"><i class="fas fa-info-circle"></i> Consultar</a></li>
+</ul>
 {%endblock%}

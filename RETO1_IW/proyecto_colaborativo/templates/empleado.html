@@ -1,24 +1,25 @@
 {% extends "base.html"%}
 {%block contenido%}
+<a href="{% url 'listaempleados'%}"><i class="far fa-hand-point-left"></i> Atrás</a>
 <table>
     <tr>
-        <td>nombre</td>
+        <td>Nombre:</td>
         <td>{{empleados.nombre}}</td>
     </tr>
     <tr>
-        <td>apellido</td>
+        <td>Apellido:</td>
         <td>{{empleados.apellido}}</td>
     </tr>
     <tr>
-        <td>telefono</td>
+        <td>Telefono:</td>
         <td>{{empleados.telefono}}
     </tr>
     <tr>
-        <td>email</td>
+        <td>Email:</td>
         <td>{{empleados.email}}</td>
     </tr>
     <tr>
-        <td>dni</td>
+        <td>DNI:    </td>
         <td>{{empleados.dni}}</td>
     </tr>
 
