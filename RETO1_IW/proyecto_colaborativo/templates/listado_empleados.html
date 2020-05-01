@@ -1,6 +1,6 @@
 {% extends "base.html"%}
 {%block contenido%}
-<a href="{% url 'empleado.form'  %}" class="btn btn-success">Insertar Empleado</a>
+<a href="{% url 'empleado.form'  %}" class="btn btn-success"><i class="fas fa-database"></i>Insertar Empleado</a>
 
 <ul>
     {% for d in Empleados_list %}

@@ -1,7 +1,7 @@
 {% extends "base.html"%}
 {%block contenido%}
 <a href="{% url 'ticketadd'%}">Insertar Ticket</a>
-
+<a href="{% url 'ticketadd'%}">filtrar Ticket</a>
 <ul>
     {% for d in ticket_list %}
     <li>

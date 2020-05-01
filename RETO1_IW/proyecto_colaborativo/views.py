@@ -5,6 +5,11 @@ from .models import Equipo, Empleado, ticket
 from .form import EquipoForm, EmpleadoForm, Empleado2Form, TicketForm
 
 
+def filtrado(request):
+    filtrado = ticket.objects.filter(urgencia='alta')
+    return render(request)
+
+
 def index(request):
     context = {'titulo_pagina': 'Inicio'}
     return render(request, 'Inicio.html', context)  # request, nombre de la template, contenido que se le pasa
@@ -158,6 +163,7 @@ def Equipos_delete(request, equipo_id):
     # Despues redireccionamos a la lista
     return redirect('http://127.0.0.1:8000/proyecto_colaborativo/')
 
+
 def Ticket_add(request):  # metodo para insertar equipos
     # Creamos un formulario vacío
     form = TicketForm
@@ -174,6 +180,7 @@ def Ticket_add(request):  # metodo para insertar equipos
             return redirect('http://127.0.0.1:8000/proyecto_colaborativo/tickets/')
     # Si llegamos al final renderizamos el formulario
     return render(request, 'add.html', {'form': form})
+
 
 def ticket_edit(request, ticket_id):
     # Recuperamos la instancia del equipo
@@ -218,7 +225,6 @@ def show_ticket_form(request):
     form = TicketForm
     context = {'form': form}
     return render(request, 'ticket.form.html', context)
-
 
 
 def post_empleado_form(request):
