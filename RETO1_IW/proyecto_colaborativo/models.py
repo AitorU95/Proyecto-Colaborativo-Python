@@ -17,7 +17,7 @@ class Empleado(models.Model):
     # Para permitir propiedades con valor null, añadiremos las opciones null=True, blank=True.
 
     def __str__(self):
-        return f"Id={self.id},Nombre={self.nombre},Apellido={self.apellido},DNI={self.dni},Telefono={self.telefono},Email={self.email}"
+        return f"{self.nombre} {self.apellido}, Id: {self.id}"
 
 # Definicion de los tipos de urgencia para el desplegable dentro del modelo ticket
 TICKET_URGENCIA_CHIOCES = (

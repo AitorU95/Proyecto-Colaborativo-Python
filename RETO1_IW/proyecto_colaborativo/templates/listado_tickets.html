@@ -1,16 +1,17 @@
 {% extends "base.html"%}
 {%block contenido%}
-<a href="{% url 'ticketadd'%}">Insertar Ticket</a>
-<a href="{% url 'ticketadd'%}">filtrar Ticket</a>
+<a href="{% url 'ticketadd'%}"><i class="far fa-file"></i>Nuevo ticket</a>
+<br>
+<a href="{% url 'urgencias'%}"><i class="fas fa-bell"></i>tickets urgentes</a>
 <ul>
     {% for d in ticket_list %}
     <li>
-        {{d.numeroref}}:{{d.titulo}} <a href="{% url 'ticket' d.id %}">Ver</a>
-        <a href="{% url 'ticketedit' d.id %}" }>Editar</a>
-        <a href="{% url 'ticketdelete' d.id %}" }><i class="fas fa-trash-alt"></i></a>
+        {{d.numeroref}}:{{d.titulo}} <a href="{% url 'ticket' d.id %}"><i class="fas fa-eye"></i>Detalles</a>
+        <a href="{% url 'ticketedit' d.id %}" }><i class="far fa-edit"></i>Editar</a>
+        <a href="{% url 'ticketdelete' d.id %}" }><i class="fas fa-trash-alt"></i>Borrar</a>
     </li>
     {% endfor %}
 </ul>
 
-
+<a href='http://127.0.0.1:8000/proyecto_colaborativo/'><i class="fas fa-long-arrow-alt-left"></i> Volver</a>
 {%endblock%}
