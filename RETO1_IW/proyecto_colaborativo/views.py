@@ -196,11 +196,8 @@ def ticket_edit(request, ticket_id):
             instancia = form.save(commit=False)
             # Podemos guardarla cuando queramos
             instancia.save()
-<<<<<<< HEAD
             return redirect('http://127.0.0.1:8000/proyecto_colaborativo/tickets/')
-=======
             return redirect('tickets')
->>>>>>> 43f688da2fed3773816c5f72543aabd0b3d11ab7
     # Si llegamos al final renderizamos el formulario
     return render(request, "editar.html", {'form': form})
 
@@ -288,10 +285,7 @@ def Empleado_edit(request, empleado_id):
             instancia = form.save(commit=False)
             # Podemos guardarla cuando queramos
             instancia.save()
-<<<<<<< HEAD
             return redirect('http://127.0.0.1:8000/proyecto_colaborativo/listaempleados')
-=======
             return redirect('listaempleados')
->>>>>>> 43f688da2fed3773816c5f72543aabd0b3d11ab7
     # Si llegamos al final renderizamos el formulario
     return render(request, "editar.html", {'form': form})

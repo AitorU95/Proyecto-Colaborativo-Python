@@ -9,11 +9,8 @@ urlpatterns = [
     path('mostrardatos/', views.post_form, name='mostrardatos'),
     path('equipo/', views.show_equipo_form, name='equipo.form'),  # insertar equipos
     path('ticket/', views.show_ticket_form, name='ticket.form'),#inserta tickets,excepto empleado que es foreign key
-<<<<<<< HEAD
     path('empleado/',views.Empleado_add,name="empleadoadd"),#inserta empleados
-=======
     path('empleado/',views.post_empleado_form,name="empleadoadd"),#inserta empleados
->>>>>>> 43f688da2fed3773816c5f72543aabd0b3d11ab7
     path('equipoalmacenados/', views.equipos, name='equipoalmacenados'),  # lista de equipos
     path('tickets/', views.TicketListView.as_view(), name='tickets'),#muestra la lista de tickets
     path('ticket/<int:pk>', views.TicketDetaiView.as_view(), name='ticket'),#muestra los detalles del ticket

@@ -13,7 +13,7 @@ class EquipoForm(ModelForm):
 class TicketForm(ModelForm):
     class Meta:
         model = ticket
-<<<<<<< HEAD
+
         fields = ['numeroref', 'titulo', 'descripcion', 'fecha_apertura',
                   'fecha_resolucion', 'urgencia', 'tipo', 'estado',
                   'empleado', 'comentarios']
@@ -49,9 +49,9 @@ class ticketForm(forms.Form):
                                          choices=OPTIONS)
 
 
-=======
-        fields = '__all__'
->>>>>>> 43f688da2fed3773816c5f72543aabd0b3d11ab7
+
+
+
 
 
 class EmpleadoForm(forms.ModelForm):  # En este caso hemos querido utilizar ambas manera
