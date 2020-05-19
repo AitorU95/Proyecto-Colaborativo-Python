@@ -1,10 +1,19 @@
 {% extends "base.html"%}
 {%block formulario%}
+<<<<<<< HEAD
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit" class="btn btn-success"><i class="fas fa-database"></i> Añadir</button>
+=======
+>>>>>>> 43f688da2fed3773816c5f72543aabd0b3d11ab7
 
-</form>
 
-{%endblock%}
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-success"><i class="fas fa-database"></i> Añadir</button>
+
+    </form>
+
+    {%endblock%}

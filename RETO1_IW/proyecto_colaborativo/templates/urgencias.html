@@ -1,0 +1,12 @@
+{% extends "base.html"%}
+{%block contenido%}
+<a href='tickets'><i class="fas fa-long-arrow-alt-left"></i> Volver</a>
+<ul>
+    {% for d in tickets %}
+    <li>
+        {{d.numeroref}}---{{d.titulo}}---{{d.descripcion}}
+        {% endfor %}
+</ul>
+
+
+{%endblock%}
