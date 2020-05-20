@@ -59,6 +59,10 @@ def ListaEmpleados(request):
 
     return render(request, 'listado_empleados.html', context)
 
+def VerLogin(request):
+    context ={'titulo_pagina': 'LOGIN'}
+    return render(request, 'login.html', context)
+
 
 def detail(request, equipo_id):  # nos saca los atributos de los equipos
     equipos = Equipo.objects.get(pk=equipo_id)

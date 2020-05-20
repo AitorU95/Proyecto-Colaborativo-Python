@@ -24,5 +24,6 @@ urlpatterns = [
     path('ticketedit/<int:ticket_id>', views.ticket_edit, name ='ticketedit'),# llama  la funcion para editar tickets
     path('empleadoedit/<int:empleado_id>',views.Empleado_edit,name='empleadoedit'),# llama a la funcion para editar empleados
     path('ticketadd/',views.Ticket_add,name='ticketadd'),# llama a la funcion para insertar tickets
-    path('urgencias',views.filtrado,name='urgencias')#llama a la funcion que muestra los tickets urgentes
+    path('urgencias',views.filtrado,name='urgencias'),#llama a la funcion que muestra los tickets urgentes
+    path('login/', views.VerLogin, name = 'login')
 ]
