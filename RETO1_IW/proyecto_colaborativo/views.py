@@ -1,6 +1,8 @@
+from django.forms import model_to_dict
 from django.shortcuts import render, redirect
+from django.views import View
 from django.views.generic import DetailView, ListView
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import Equipo, Empleado, ticket
 from .form import EquipoForm, EmpleadoForm, TicketForm
 
@@ -81,6 +83,73 @@ class TicketDetaiView(DetailView):
         context['titulo_pagina'] = 'Detalles del ticket'
         return context
 
+class EmpleadoListView_Json(View):
+    def get(self, request):
+        EmpleadosList = Empleado.objects.all()
+        return JsonResponse(list(EmpleadosList.values()), safe = False)
+
+    def post(self, request):
+        empleado = Empleado()
+        empleado.nombre = request.POST['nombre']
+        empleado.apellido = request.POST['apellido']
+        empleado.dni = request.POST['dni']
+        empleado.telefono = request.POST['telefono']
+        empleado.email = request.POST['email']
+        empleado.save()
+        return JsonResponse(model_to_dict(empleado))
+
+class EmpleadoDetaiView_Json(View):
+    def get(self, request, pk):
+        empleado = Empleado.objects.get(pk = pk)
+        return JsonResponse(model_to_dict(empleado))
+
+class EmquipoListView_Json(View):
+    def get(self, request):
+        EquipoList = Equipo.objects.all()
+        return JsonResponse(list(EquipoList.values()), safe = False)
+
+    def post(self, request):
+        equipo = Equipo()
+        equipo.modelo = request.POST['modelo']
+        equipo.numeroserie = request.POST['numeroserie']
+        equipo.marca = request.POST['marca']
+        equipo.tipo = request.POST['tipo']
+        equipo.fecha_adquisicion = request.POST['fecha_adquisicion']
+        equipo.fecha_puesta_marcha = request.POST['fecha_puesta_marcha']
+        equipo.proveedor = request.POST['proveedor']
+        equipo.save()
+        return JsonResponse(model_to_dict(equipo))
+
+class EquipoDetalView_Json(View):
+    def get(self, request, pk):
+        equipo = Equipo.objects.get(pk = pk)
+        return JsonResponse(model_to_dict(equipo))
+
+
+class TicketListView_Json(View):
+    def get(self, request):
+        TicketList = ticket.objects.all()
+        return JsonResponse(list(TicketList.values()), safe = False)
+
+    def post(self, request):
+        Ticket = ticket()
+        ticket.numeroref = request.POST['numeroref']
+        ticket.titulo = request.POST['titulo']
+        ticket.descripcion = request.POST['descripcion']
+        ticket.fecha_apertura = request.POST['fecha_apertura']
+        ticket.fecha_resolucion = request.POST['fecha_resolucion']
+        ticket.urgencia = request.POST['urgencia']
+        ticket.tipo= request.POST['tipo']
+        ticket.estado = request.POST['estado']
+        ticket.empleado = request.POST['empleado']
+        ticket.comentarios = request.POST['comentarios']
+        ticket.save()
+        return JsonResponse(model_to_dict(ticket))
+
+class TicketDetalView_Json(View):
+    def get(self, request, pk):
+        Ticket = ticket.objects.get(pk = pk)
+        return JsonResponse(model_to_dict(ticket))
 
 class EmpleadoDetailView(DetailView):  # clase predefinida de django para ids
     model = Empleado

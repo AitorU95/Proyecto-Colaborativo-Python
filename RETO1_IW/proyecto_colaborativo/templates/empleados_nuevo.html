@@ -1,0 +1,25 @@
+{% extends "base.html"%}
+{%block contenido%}
+<div>
+    <button onclick="traer()">Obtener Lista</button>
+    <div    >
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody id="contenido">
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<script src= "/static/js/empleados.js"></script>
+
+{%endblock%}

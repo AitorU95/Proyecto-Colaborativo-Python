@@ -1,8 +1,11 @@
 from django.urls import path
 from . import views
+from .views import EmpleadoListView_Json, EmpleadoDetaiView_Json
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('empleadojson/', EmpleadoListView_Json.as_view(), name='listado_empleados_json'),
+    path('empleadojson/<int:pk>/', EmpleadoDetaiView_Json.as_view(), name='empleadoss'),
     path('equipos/<equipo_id>', views.detail, name='equipos'),  # pones id y te muestra equipo
     path('empleados/<int:pk>', views.EmpleadoDetailView.as_view(), name='empleado'),#muestra los detalles de cada empleado
     path('registro/', views.show_form, name='registro'),
