@@ -10,6 +10,7 @@ function traer1(equipo){
     fetch(listaequipos)
         .then((response) => response.json() )
         .then((equipo) => {
+        console.log(equipo)
            let equipo1= crearequipo(equipo)
            document.getElementById('prueba2').innerHTML = equipo1;
 
@@ -59,9 +60,9 @@ function insertar(){
         modelo: formulario.children["modelo"].value,
         numeroserie: formulario.children["numeroserie"].value,
         marca: formulario.children["marca"].value,
-        tipo: formulario.children["tipo"].value
-        fecha adquisicion: formulario.children["fecha adquisicion"].value,
-        fecha puesta en marcha: formulario.children["fecha puesta en marcha"].value,
+        tipo: formulario.children["tipo"].value,
+        fecha_adquisicion:formulario.children["fecha adquisicion"].value,
+        fecha_puesta_en_marcha:formulario.children["fecha puesta en marcha"].value,
         proveedor: formulario.children["proveedor"].value,
         planta: formulario.children["planta"].value
     }

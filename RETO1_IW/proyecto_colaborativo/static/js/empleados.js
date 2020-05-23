@@ -49,6 +49,8 @@ function crearempleado(empleado) {
 }
 document.getElementById('insertar').addEventListener('click', insertar);
 
+const tareas=[]
+
 function insertar(){
  event.preventDefault();
  fetch(listaempleados)
