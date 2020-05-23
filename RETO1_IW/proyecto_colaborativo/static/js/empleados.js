@@ -1,5 +1,3 @@
-
-
 let h3 = document.getElementById('prueba1');
 h3.addEventListener('click', traer1)
 const SERVICE_URL="https://got-quotes.herokuapp.com/quotes";

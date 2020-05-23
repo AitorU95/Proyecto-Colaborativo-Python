@@ -6,9 +6,7 @@
 <br>
 <a href="{% url 'equipoalmacenados' %}"><i class="fas fa-redo-alt"></i> Actualizar</a>
 <br>
-
-<a href='http://127.0.0.1:8000/proyecto_colaborativo'><i class="fas fa-long-arrow-alt-left"></i> Volver</a>
-
+<button id="prueba2" >Consultar equipos</button>
 <br><br>
 <h6>EQUIPOS ACTIVOS:</h6>
 <ul>
@@ -24,7 +22,20 @@
     </li>
     {% endfor %}
 </ul>
+<form id="uno">
+            <input type="text" name="modelo" placeholder="modelo">
+            <input type="text" name="numeroserie"placeholder="numeroserie">
+            <input type="text" name="marca" placeholder="marca">
+            <input type="text" name="tipo" placeholder="tipo">
+            <input type="date" name="fecha adquisicion" placeholder="fecha adquisicion">
+            <input type="date" name="fecha puesta en marcha" placeholder="fecha puesta en marcha">
+            <input type="text" name="proveedor" placeholder="proveedor">
+            <input type="text" name="planta" placeholder="planta">
+            <input id="insertar" type="submit" value="añadir y mostrar datos">
+        </form>
+<div id="aki"></div>
 
 <a href='http://127.0.0.1:8000/proyecto_colaborativo'><i class="fas fa-long-arrow-alt-left"></i> Volver</a>
+<script src="/static/js/equipos.js"></script>
 
 {%endblock%}

@@ -99,27 +99,12 @@ class EmpleadoListView_Json(View):
         empleado.save()
         return JsonResponse(model_to_dict(empleado))
 
-class EquipoListView_Json(View):
-    def get(self, request):
-        EmpleadosList = Empleado.objects.all()
-        return JsonResponse(list(EmpleadosList.values()), safe = False)
-
-    def post(self, request):
-        empleado = Empleado()
-        empleado.nombre = request.POST['nombre']
-        empleado.apellido = request.POST['apellido']
-        empleado.dni = request.POST['dni']
-        empleado.telefono = request.POST['telefono']
-        empleado.email = request.POST['email']
-        empleado.save()
-        return JsonResponse(model_to_dict(empleado))
-
 class EmpleadoDetaiView_Json(View):
     def get(self, request, pk):
         empleado = Empleado.objects.get(pk = pk)
         return JsonResponse(model_to_dict(empleado))
 
-class EmquipoListView_Json(View):
+class EquipoListView_Json(View):
     def get(self, request):
         EquipoList = Equipo.objects.all()
         return JsonResponse(list(EquipoList.values()), safe = False)
@@ -165,7 +150,7 @@ class TicketListView_Json(View):
 class TicketDetalView_Json(View):
     def get(self, request, pk):
         Ticket = ticket.objects.get(pk = pk)
-        return JsonResponse(model_to_dict(ticket))
+        return JsonResponse(model_to_dict(Ticket))
 
 class EmpleadoDetailView(DetailView):  # clase predefinida de django para ids
     model = Empleado
