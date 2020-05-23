@@ -11,7 +11,7 @@ function traer1(ticket){
         .then((response) => response.json() )
         .then((ticket) => {
         console.log(ticket)
-           let equipo1= crearticket(ticket)
+           let ticket1= crearticket(ticket)
            document.getElementById('prueba3').innerHTML = ticket1;
 
         })
