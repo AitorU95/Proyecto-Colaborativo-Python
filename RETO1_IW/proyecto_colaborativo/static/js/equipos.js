@@ -16,11 +16,11 @@ function traer1(equipo){
 
         })
 }
-function crearTarea(modelo, nserie){
+function crearTarea(modelo, numeroserie){
     return `
         <tr>
             <td>${modelo}>></td>
-            <td>${nserie}</td>
+            <td>${numeroserie}</td>
         </tr>`;
 }
 function crearequipo(equipo) {
@@ -31,7 +31,7 @@ function crearequipo(equipo) {
                 <tr>
 
                     <td>modelo</td>
-                    <td>nserie</td>
+                    <td>numeroserie</td>
                 </tr>
             </thead>
             <tbody>
@@ -40,7 +40,7 @@ function crearequipo(equipo) {
 
     for(let valor of equipo) {
 
-        tabla += crearTarea( valor.modelo, valor.nserie);
+        tabla += crearTarea( valor.modelo, valor.numeroserie);
     }
     tabla += '</tbody></table>'
     return tabla;

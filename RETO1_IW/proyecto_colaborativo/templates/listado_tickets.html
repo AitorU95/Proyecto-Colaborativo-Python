@@ -5,7 +5,7 @@
 <br>
 <a href="{% url 'urgencias'%}"><i class="fas fa-bell"></i>tickets urgentes</a>
 <br>
-
+<button id="prueba3" >Visualizar tickets</button>
 <br><br>
 <h6>LISTADO DE TICKETS:</h6>
 <ul id="tickets">
@@ -18,9 +18,25 @@
     </li>
     {% endfor %}
 </ul>
+ <form id="uno">
+            <input type="text" name="numeroref" placeholder="numeroref">
+            <input type="text" name="titulo"placeholder="titulo">
+            <input type="text" name="descripcion" placeholder="descripcion">
+            <input type="date" name="fecha apertura" placeholder="fecha apertura">
+            <input type="date" name="fecha resolucion" placeholder="fecha resolucion">
+            <input type="text" name="urgencia" placeholder="urgencia">
+            <input type="text" name="tipo" placeholder="tipo">
+            <input type="text" name="urgencia" placeholder="urgencia">
+            <input type="text" name="estado" placeholder="estado">
+            <input type="text" name="empleado" placeholder="empleado">
+            <input type="text" name="comentarios" placeholder="comentarios">
+            <input id="insertar" type="submit" value="añadir y mostrar datos">
+        </form>
 
-
+<div id="aki"></div>
+<br>
 
 <a id="volver" href='http://127.0.0.1:8000/proyecto_colaborativo/'><i class="fas fa-long-arrow-alt-left"></i> Volver</a>
+<script src="/static/js/ticket.js"></script>
 {%endblock%}
 
