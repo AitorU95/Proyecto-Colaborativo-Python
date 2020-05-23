@@ -82,8 +82,24 @@ class TicketDetaiView(DetailView):
         context = super(TicketDetaiView, self).get_context_data(**kwargs)
         context['titulo_pagina'] = 'Detalles del ticket'
         return context
+#funciones json :
 
 class EmpleadoListView_Json(View):
+    def get(self, request):
+        EmpleadosList = Empleado.objects.all()
+        return JsonResponse(list(EmpleadosList.values()), safe = False)
+
+    def post(self, request):
+        empleado = Empleado()
+        empleado.nombre = request.POST['nombre']
+        empleado.apellido = request.POST['apellido']
+        empleado.dni = request.POST['dni']
+        empleado.telefono = request.POST['telefono']
+        empleado.email = request.POST['email']
+        empleado.save()
+        return JsonResponse(model_to_dict(empleado))
+
+class EquipoListView_Json(View):
     def get(self, request):
         EmpleadosList = Empleado.objects.all()
         return JsonResponse(list(EmpleadosList.values()), safe = False)

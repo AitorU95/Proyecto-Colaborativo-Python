@@ -30,8 +30,7 @@
     let h2 = document.getElementById('subtitulo');
     h2.addEventListener('mouseover', saludar);
 
-    let volver = document.getElementById('volver');
-    volver.addEventListener('mouseover', volveratras);
+
 
     let p=document.getElementById('parrafo');
     p.addEventListener('mouseover', parrafo1);

@@ -2,7 +2,9 @@
 {%block contenido%}
 <a href="{% url 'empleadoadd'  %}"><i class="far fa-file"></i> Nuevo Empleado</a>
 <br>
-<a href='http://127.0.0.1:8000/proyecto_colaborativo'><i class="fas fa-long-arrow-alt-left"></i> Volver</a>
+
+<a id="prueba1" >Contactar empleado</a>
+
 <br><br>
 <h6>LISTADO DE EMPLEADOS ACTIVOS:</h6>
 <ul>
@@ -15,9 +17,16 @@
     </li>
     {% endfor %}
 </ul>
-
+        <form id="uno">
+            <input type="text" name="nombre" placeholder="nombre">
+            <input type="text" name="apellido"placeholder="apellido">
+            <input type="text" name="dni" placeholder="dni">
+            <input type="text" name="email" placeholder="email">
+            <input id="insertar" type="submit" value="añadir y mostrar datos">
+        </form>
+<div id="aki"></div>
 <br>
 
 <a href='http://127.0.0.1:8000/proyecto_colaborativo'><i class="fas fa-long-arrow-alt-left"></i> Volver</a>
-
+<script src="/static/js/empleados.js"></script>
 {%endblock%}
