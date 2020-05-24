@@ -5,6 +5,12 @@ from django.views.generic import DetailView, ListView
 from django.http import HttpResponse, JsonResponse
 from .models import Equipo, Empleado, ticket
 from .form import EquipoForm, EmpleadoForm, TicketForm
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+
+@method_decorator(csrf_exempt, name='dispatch')
+
+
 
 
 def filtrado(request):  # metodo para el fintrado de las urgencias, asi el usuario sabe que urgencias gestionar primero

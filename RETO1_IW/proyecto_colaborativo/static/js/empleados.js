@@ -65,15 +65,26 @@ function insertar(){
         nombre: formulario.children["nombre"].value,
         apellido: formulario.children["apellido"].value,
         dni: formulario.children["dni"].value,
+        telofono: formulario.children["telefono"].value,
         email: formulario.children["email"].value
     }
 
     empleado.push(nuevaTarea);
+    fetch(listaempleados,{
+    method: 'POST',
+     headers : {
+    'Content-Type' : 'application/json'
+     },
+      body : JSON.stringify({
+        nuevaTarea
+      })
+     })
+     .then(response => response.json())
+     .then(json => console.log(json))
 
 
 
     listaempleados2=crearempleado(empleado);
-    console.log(listaempleados2)
     document.getElementById('aki').innerHTML = listaempleados2;
 
         })
