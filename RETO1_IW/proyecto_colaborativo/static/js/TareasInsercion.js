@@ -10,14 +10,14 @@ function InsertarTareas(){
 
    let nuevaTarea = {texto:
    formulario.children["texto"].value}
-   console.log(nuevaTarea)
+
   fetch(tareas,{
     method: 'POST',
      headers : {
     'Content-Type' : 'application/json'
      },
       body : JSON.stringify({
-        nuevaTarea
+        texto
       })
      })
      .then(response => response.json())
