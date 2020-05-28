@@ -6,10 +6,10 @@ let mostrar = document.getElementById('enviar');
 mostrar.addEventListener('click',InsertarTareas )
 
 function InsertarTareas(){
-   let formulario = document.getElementById('uno');
 
-   let nuevaTarea = {texto:
-   formulario.children["texto"].value}
+   let formulario = document.getElementById('uno');
+   let nuevaTarea = {
+   texto:formulario.children["texto"].value}
 
   fetch(tareas,{
     method: 'POST',
@@ -17,7 +17,7 @@ function InsertarTareas(){
     'Content-Type' : 'application/json'
      },
       body : JSON.stringify({
-        texto
+        nuevaTarea
       })
      })
      .then(response => response.json())
