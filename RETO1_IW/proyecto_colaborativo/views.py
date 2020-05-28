@@ -65,7 +65,7 @@ def ListaEmpleados(request):
 
 
 def VerLogin(request):
-    context = {'titulo_pagina': 'LOGIN'}
+    context = {'titulo_pagina': 'Login'}
     return render(request, 'login.html', context)
 
 

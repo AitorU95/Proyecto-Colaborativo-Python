@@ -1,11 +1,16 @@
 {% extends "base.html"%}
 {%block Menu%}
     <script src= "/static/js/login.js"></script>
+
     <form>
-        <p>Usuario <input type="text" name="usuario" id="usuario"></p>
-        <p>Contraseña<input type="password" name="password" id="pass"></p>
-        <input onclick= login() type="button" value="Acceder">
+        <label>Nombre de Usuario:</label>
+        <input type="text" name="username" id="username">
+        <label>Contraseña:</label>
+        <input type="password" name="password" id="password">
+        <input onclick = validar() type="button" value="Login" id="submit">
     </form>
+
+    <a id="volver" href='http://127.0.0.1:8000/proyecto_colaborativo/'><i class="fas fa-long-arrow-alt-left"></i> Volver</a>
 
 
 
