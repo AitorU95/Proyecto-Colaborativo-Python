@@ -11,6 +11,7 @@ class Empleado(models.Model):
     dni = models.CharField(max_length=40, null=True)
     telefono = models.IntegerField(null=True)
     email = models.EmailField(null=True)
+
     # Es posible indicar un valor por defecto mediante 'default'
 
 
@@ -37,6 +38,8 @@ TICKET_ESTADO_CHOICES = (
     ('abierto','ABIERTO'),
     ('cerrado','CERRADO')
 )
+class Descripcion(models.Model):
+     texto = models.CharField(max_length=200, null=True)
 
 class ticket(models.Model):
     # No es necesario crear un campo para la Primary Key, Django creará automáticamente un IntegerField.

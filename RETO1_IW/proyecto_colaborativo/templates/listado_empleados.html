@@ -1,9 +1,10 @@
 {% extends "base.html"%}
 {%block contenido%}
+
 <a href="{% url 'empleadoadd'  %}"><i class="far fa-file"></i> Nuevo Empleado</a>
 <br>
 
-<button id="prueba1" >Contactar empleado</button>
+
 
 <br><br>
 <h6>LISTADO DE EMPLEADOS ACTIVOS:</h6>
@@ -17,17 +18,14 @@
     </li>
     {% endfor %}
 </ul>
-        <form id="uno" method="POST">
-            <input type="text" name="nombre" placeholder="nombre">
-            <input type="text" name="apellido"placeholder="apellido">
-            <input type="text" name="dni" placeholder="dni">
-             <input type="text" name="telefono" placeholder="telefono">
-            <input type="text" name="email" placeholder="email">
-            <input id="insertar" type="submit" value="añadir y mostrar datos">
+        <form  id="uno" method="POST">
+            {% csrf_token %}
+            <input id="texto" type="text" name="texto" placeholder="texto">
+            <input id="enviar" type="submit" name="enviar" placeholder="enviarTarea">
         </form>
-<div id="aki"></div>
+
 <br>
 
 <a href='http://127.0.0.1:8000/proyecto_colaborativo'><i class="fas fa-long-arrow-alt-left"></i> Volver</a>
-<script src="/static/js/empleados.js"></script>
+<script src="/static/js/TareasInsercion.js"></script>
 {%endblock%}

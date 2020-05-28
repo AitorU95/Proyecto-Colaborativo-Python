@@ -3,14 +3,10 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import DetailView, ListView
 from django.http import HttpResponse, JsonResponse
-from .models import Equipo, Empleado, ticket
+from .models import Equipo, Empleado, ticket, Descripcion
 from .form import EquipoForm, EmpleadoForm, TicketForm
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-
-@method_decorator(csrf_exempt, name='dispatch')
-
-
 
 
 def filtrado(request):  # metodo para el fintrado de las urgencias, asi el usuario sabe que urgencias gestionar primero
@@ -67,8 +63,9 @@ def ListaEmpleados(request):
 
     return render(request, 'listado_empleados.html', context)
 
+
 def VerLogin(request):
-    context ={'titulo_pagina': 'LOGIN'}
+    context = {'titulo_pagina': 'LOGIN'}
     return render(request, 'login.html', context)
 
 
@@ -88,12 +85,27 @@ class TicketDetaiView(DetailView):
         context = super(TicketDetaiView, self).get_context_data(**kwargs)
         context['titulo_pagina'] = 'Detalles del ticket'
         return context
-#funciones json :
 
+
+# funciones json :
+@method_decorator(csrf_exempt, name='dispatch')
+class DescripcionListView_Json(View):
+    def get(self, request):
+        descripcionListado = Descripcion.objects.all()
+        return JsonResponse(list(descripcionListado.values()), safe=False)
+
+    def post(self, request):
+        tarea = Descripcion()
+        tarea.texto = request.POST.get('texto')
+        tarea.save()
+        return JsonResponse(model_to_dict(tarea))
+
+
+@method_decorator(csrf_exempt, name='dispatch')
 class EmpleadoListView_Json(View):
     def get(self, request):
         EmpleadosList = Empleado.objects.all()
-        return JsonResponse(list(EmpleadosList.values()), safe = False)
+        return JsonResponse(list(EmpleadosList.values()), safe=False)
 
     def post(self, request):
         empleado = Empleado()
@@ -105,15 +117,17 @@ class EmpleadoListView_Json(View):
         empleado.save()
         return JsonResponse(model_to_dict(empleado))
 
+
 class EmpleadoDetaiView_Json(View):
     def get(self, request, pk):
-        empleado = Empleado.objects.get(pk = pk)
+        empleado = Empleado.objects.get(pk=pk)
         return JsonResponse(model_to_dict(empleado))
+
 
 class EquipoListView_Json(View):
     def get(self, request):
         EquipoList = Equipo.objects.all()
-        return JsonResponse(list(EquipoList.values()), safe = False)
+        return JsonResponse(list(EquipoList.values()), safe=False)
 
     def post(self, request):
         equipo = Equipo()
@@ -127,16 +141,17 @@ class EquipoListView_Json(View):
         equipo.save()
         return JsonResponse(model_to_dict(equipo))
 
+
 class EquipoDetalView_Json(View):
     def get(self, request, pk):
-        equipo = Equipo.objects.get(pk = pk)
+        equipo = Equipo.objects.get(pk=pk)
         return JsonResponse(model_to_dict(equipo))
 
 
 class TicketListView_Json(View):
     def get(self, request):
         TicketList = ticket.objects.all()
-        return JsonResponse(list(TicketList.values()), safe = False)
+        return JsonResponse(list(TicketList.values()), safe=False)
 
     def post(self, request):
         Ticket = ticket()
@@ -146,17 +161,19 @@ class TicketListView_Json(View):
         ticket.fecha_apertura = request.POST['fecha_apertura']
         ticket.fecha_resolucion = request.POST['fecha_resolucion']
         ticket.urgencia = request.POST['urgencia']
-        ticket.tipo= request.POST['tipo']
+        ticket.tipo = request.POST['tipo']
         ticket.estado = request.POST['estado']
         ticket.empleado = request.POST['empleado']
         ticket.comentarios = request.POST['comentarios']
         ticket.save()
         return JsonResponse(model_to_dict(ticket))
 
+
 class TicketDetalView_Json(View):
     def get(self, request, pk):
-        Ticket = ticket.objects.get(pk = pk)
+        Ticket = ticket.objects.get(pk=pk)
         return JsonResponse(model_to_dict(Ticket))
+
 
 class EmpleadoDetailView(DetailView):  # clase predefinida de django para ids
     model = Empleado
@@ -325,6 +342,7 @@ def post_empleado_form(request):  # metodo para insertar equipos
     # Si llegamos al final renderizamos el formulario
     return render(request, 'add.html', {'form': form})
 
+
 def Empleado_add(request):  # metodo para insertar equipos
     # Creamos un formulario vacío
     form = EmpleadoForm
@@ -341,6 +359,7 @@ def Empleado_add(request):  # metodo para insertar equipos
             return redirect('http://127.0.0.1:8000/proyecto_colaborativo/listaempleados/')
     # Si llegamos al final renderizamos el formulario
     return render(request, 'add.html', {'form': form})
+
 
 def Empleados_delete(request, empleado_id):
     # Recuperamos la instacia del equipo y la borramos
