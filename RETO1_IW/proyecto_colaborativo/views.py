@@ -18,8 +18,8 @@ def filtrado(request):  # metodo para el fintrado de las urgencias, asi el usuar
 
 
 def index(request):
-    context = {'titulo_pagina': 'Inicio'}
-    return render(request, 'Inicio.html', context)  # request, nombre de la template, contenido que se le pasa
+    context = {'titulo_pagina': 'Introduce tus credenciales para acceder a la aplicación:'}
+    return render(request, 'login.html', context)  # request, nombre de la template, contenido que se le pasa
 
 
 def equipos(request):
@@ -64,9 +64,9 @@ def ListaEmpleados(request):
     return render(request, 'listado_empleados.html', context)
 
 
-def VerLogin(request):
-    context = {'titulo_pagina': 'Login'}
-    return render(request, 'login.html', context)
+def VerInicio(request):
+    context = {'titulo_pagina': 'Inicio'}
+    return render(request, 'Inicio.html', context)
 
 
 def detail(request, equipo_id):  # nos saca los atributos de los equipos
