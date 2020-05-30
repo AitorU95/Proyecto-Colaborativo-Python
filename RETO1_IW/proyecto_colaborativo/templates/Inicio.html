@@ -1,6 +1,8 @@
 {% extends "base.html"%}
 {%block Menu%}
-<h3>SELECCIONA UNA OPCIÓN</h3>
+{% load staticfiles %}
+<section class="inicio">
+ <h3>SELECCIONA UNA OPCIÓN</h3>
 <ul >
     <li>Gestión de los equipos <a href="{% url 'equipoalmacenados'  %}"><i class="fas fa-info-circle"></i> Consultar</a></li>
     <li>Gestión de los tickets <a href="{% url 'tickets'  %}"><i class="fas fa-info-circle"></i> Consultar</a></li>
@@ -8,9 +10,13 @@
 
 
 </ul>
+</section>
 
-<input id="mostrar" type="button" value="Estado tareas">
+<section class="inicio">
+  <input id="mostrar" type="button" value="Estado tareas">
 <div id="tarea1"></div>
+</section>
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
 <script src="/static/js/tareas.js"></script>
 {%endblock%}
 

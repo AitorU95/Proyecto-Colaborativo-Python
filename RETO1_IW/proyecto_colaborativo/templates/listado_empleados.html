@@ -1,14 +1,15 @@
 {% extends "base.html"%}
 {%block contenido%}
-
+{% load staticfiles %}
 <a href="{% url 'empleadoadd'  %}"><i class="far fa-file"></i> Nuevo Empleado</a>
 <br>
 
 
 
 <br><br>
-<h6>LISTADO DE EMPLEADOS ACTIVOS:</h6>
-<ul>
+<section class="seccionListadoEmpleados">
+  <h6>LISTADO DE EMPLEADOS ACTIVOS:</h6>
+ <ul>
     {% for d in Empleados_list %}
     <li>
         {{d.nombre}} {{d.apellido}}, ID: {{d.id}}
@@ -17,15 +18,23 @@
         <a href="{% url 'empleadodelete' d.id  %}"><i class="fas fa-trash-alt"></i> Borrar</a>
     </li>
     {% endfor %}
-</ul>
+ </ul>
+    <a href='http://127.0.0.1:8000/proyecto_colaborativo/inicio'><i class="fas fa-long-arrow-alt-left"></i> Volver</a>
+</section>
+
+<section class="secccionTareas">
+   <h3>Tareas</h3>
         <form  id="uno" method="POST">
             {% csrf_token %}
             <input id="texto" type="text" name="texto" placeholder="texto">
-            <input id="enviar" type="submit" name="enviar" placeholder="enviarTarea">
+            <button id="enviar" name="enviar" placeholder="enviarTarea" onclick='InsertarTareas();'> Enviar </button>
+
         </form>
+</section>
+
 
 <br>
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
 
-<a href='http://127.0.0.1:8000/proyecto_colaborativo/inicio'><i class="fas fa-long-arrow-alt-left"></i> Volver</a>
 <script src="/static/js/TareasInsercion.js"></script>
 {%endblock%}

@@ -40,6 +40,7 @@ function CrearTablaTareas(tareas) {
     return tabla;
 }
 function CrearTarea( texto){
+
     return `
         <tr>
 

@@ -96,9 +96,9 @@ class DescripcionListView_Json(View):
 
     def post(self, request):
         tarea = Descripcion()
-        tarea.texto = request.POST.get('texto')
+        tarea.texto = request.POST['texto']
         tarea.save()
-        return JsonResponse(model_to_dict(tarea))
+        return JsonResponse(model_to_dict(tarea), safe=False)
 
 
 @method_decorator(csrf_exempt, name='dispatch')
