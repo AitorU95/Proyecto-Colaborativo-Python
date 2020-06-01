@@ -3,18 +3,18 @@
 {% load static %}
 <section class="inicio">
  <h3>SELECCIONA UNA OPCIÓN</h3>
-<ul >
+ <ul >
     <li>Gestión de los equipos <a href="{% url 'equipoalmacenados'  %}"><i class="fas fa-info-circle"></i> Consultar</a></li>
     <li>Gestión de los tickets <a href="{% url 'tickets'  %}"><i class="fas fa-info-circle"></i> Consultar</a></li>
     <li>Visualización de empleados activos <a href="{% url 'listaempleados'  %}"><i class="fas fa-info-circle"></i> Consultar</a></li>
 
 
-</ul>
+ </ul>
 </section>
 
-<section class="inicio">
-  <input id="mostrar" type="button" value="Estado tareas">
-<div id="tarea1"></div>
+<section class="inicio2">
+  <input id="mostrar" type="button" value="Tareas asiganadas">
+  <div id="tarea1"></div>
 </section>
 <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
 <script src="/static/js/tareas.js"></script>

@@ -38,6 +38,7 @@ TICKET_ESTADO_CHOICES = (
     ('abierto','ABIERTO'),
     ('cerrado','CERRADO')
 )
+# Modelo de las tareas
 class Descripcion(models.Model):
      texto = models.CharField(max_length=200, null=True)
 

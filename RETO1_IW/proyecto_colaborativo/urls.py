@@ -1,16 +1,11 @@
 from django.urls import path
 from . import views
-from .views import EmpleadoListView_Json, EmpleadoDetaiView_Json, EquipoListView_Json, EquipoDetalView_Json, TicketListView_Json, TicketDetalView_Json, DescripcionListView_Json
+from .views import   DescripcionListView_Json
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('empleadojson/', EmpleadoListView_Json.as_view(), name='listado_empleados_json'),
-    path('empleadojson/<int:pk>/', EmpleadoDetaiView_Json.as_view(), name='empleadoss'),
+
     path('descripcionjson/',DescripcionListView_Json.as_view(),name='descripcion'),
-    path('equipojson/', EquipoListView_Json.as_view(), name='listado_equipos_json'),
-    path('equipojson/<int:pk>', EquipoDetalView_Json.as_view(), name ='equipo_json_id'),
-    path('ticketjson/',TicketListView_Json.as_view(),name='listado_tickets_json'),
-    path('ticketjson/<int:pk>', TicketDetalView_Json.as_view(), name='ticket_json_id'),
     path('equipos/<equipo_id>', views.detail, name='equipos'),  # pones id y te muestra equipo
     path('empleados/<int:pk>', views.EmpleadoDetailView.as_view(), name='empleado'),#muestra los detalles de cada empleado
     path('registro/', views.show_form, name='registro'),

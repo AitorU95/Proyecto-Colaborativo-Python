@@ -27,7 +27,7 @@ function CrearTablaTareas(tareas) {
             <thead>
                 <tr>
 
-                    <td>texto</td>
+                    <td>texto:</td>
 
                 </tr>
             </thead>
