@@ -1,9 +1,7 @@
 
 const tareas="/proyecto_colaborativo/descripcionjson/"
 
-
-
-
+// funcion para insertar las tareas a bbdd
 function InsertarTareas(){
 
 
@@ -16,7 +14,7 @@ function InsertarTareas(){
     })
     .then(response => response.json())
     .then((data) => {
-        alert("se ha cargado correctamente")
+        alert("Tarea enviada correctamente")
     })
 
 }

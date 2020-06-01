@@ -5,6 +5,7 @@ const tareas="/proyecto_colaborativo/descripcionjson/"
 let mostrar = document.getElementById('mostrar');
 mostrar.addEventListener('click', TraerTareas)
 
+// funcion para coger la lista de tareas de la bbdd
 function TraerTareas(){
  fetch(tareas)
         .then((response) => response.json() )
@@ -15,6 +16,8 @@ function TraerTareas(){
         })
 
 }
+
+// funcion para generar la tabla con las tareas
 function CrearTablaTareas(tareas) {
 
 
@@ -34,12 +37,14 @@ function CrearTablaTareas(tareas) {
 
     for(let valor of tareas) {
 
-        tabla += CrearTarea( valor.texto);
+        tabla += CrearTarea(valor.texto);
     }
     tabla += '</tbody></table>'
     return tabla;
 }
-function CrearTarea( texto){
+
+// funcion para generar la tarea
+function CrearTarea(texto){
 
     return `
         <tr>
